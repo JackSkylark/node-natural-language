@@ -13,6 +13,11 @@ const config = {
       './ts/server/main.ts'
     ],
     target: 'node',
+    context: __dirname,
+    node: {
+        __filename: true,
+        __dirname: true
+    },
     output: {
         path: __dirname,
         filename: 'main.js'

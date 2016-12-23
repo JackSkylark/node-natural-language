@@ -1,8 +1,4 @@
-import {PartsOfSpeech} from "./parts-of-speech";
-import {tag} from "./parts-of-speech-tagger";
-import {AggressiveTokenizer} from "./../tokenizer";
-
-enum SentenceTypes {
+export enum SentenceTypes {
     Interrogative,
     Command,
     Exclamatory,
@@ -10,12 +6,11 @@ enum SentenceTypes {
     Unknown
 }
 
-interface sentenceAnalysis {
+export interface sentenceAnalysis {
 
 }
 
 export const analyzeSentence = (sentence: string): sentenceAnalysis => {
-
-    
+    return {};   
 
 }

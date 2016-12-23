@@ -15,16 +15,16 @@ import AppRouter from "./routes";
 
 const HTTP_PORT = 3102;
 const HTTPS_PORT = 3101;
-
+const absoluteDirname = path.dirname((process.mainModule as any).filename);
 /////////////////////////////////////////
 // 1) Create Express app
 /////////////////////////////////////////
 
 const app: Express = CreateExpressApp();
+app.use(setStatic(path.join(absoluteDirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(setStatic(path.join(__dirname, "public")));
 
 // Set View Engine
 app.set("views", "views/pages");
@@ -45,8 +45,6 @@ app.use(AppRouter);
 //////////////////////////////////////////////
 
 // Https
-const absoluteDirname = path.dirname((process.mainModule as any).filename);
-
 var secureServer = https.createServer({
         key: fs.readFileSync(path.resolve(absoluteDirname, 'configs/ssl/server-key.pem')),
         cert: fs.readFileSync(path.join(absoluteDirname,'configs/ssl/server-cert.pem'))

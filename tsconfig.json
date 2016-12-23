@@ -2,7 +2,7 @@
     "compilerOptions": {
         "allowJs": false,
         "charset": "UTF-8",
-        "declaration": true,
+        "declaration": false,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "forceConsistentCasingInFileNames": true,
